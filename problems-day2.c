@@ -2,11 +2,11 @@
 #include <math.h>
 
 // Function to check if a number is positive, negative, or zero using if-else
-void checkNumber(int num) {
-    if (num > 0) {
-        printf("%d is positive.\n", num);
-    } else if (num < 0) {
-        printf("%d is negative.\n", num);
+void checkNumber(int numb) {
+    if (numb > 0) {
+        printf("%d is positive.\n", numb);
+    } else if (numb < 0) {
+        printf("%d is negative.\n", numb);
     } else {
         printf("The number is zero.\n");
     }
