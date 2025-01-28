@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-// Function to check if a number is positive, negative, or zero
+// Function to check if a number is positive, negative, or zero using if-else
 void checkNumber(int num) {
     if (num > 0) {
         printf("%d is positive.\n", num);
