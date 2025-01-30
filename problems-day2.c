@@ -110,21 +110,37 @@ int isPalindrome(int num) {
 }
 
 // Function to check if a number is an Armstrong number
+// int isArmstrong(int num) {
+//     int sum = 0, original = num, digits = 0;
+//     while (original != 0) {
+//         original /= 10;
+//         digits++;
+//     }
+//     original = num;
+//     while (original != 0) {
+//         int digit = original % 10;
+//         sum += pow(digit, digits);
+//         original /= 10;
+//     }
+//     return sum == num;
+// }
+
 int isArmstrong(int num) {
-    int sum = 0, original = num, digits = 0;
-    while (original != 0) {
-        original /= 10;
-        digits++;
+    int sum = 0, count = 0, temp = num, 
+
+    while(count!=0){
+        temp = temp/10;
+        count++;
     }
-    original = num;
-    while (original != 0) {
-        int digit = original % 10;
-        sum += pow(digit, digits);
-        original /= 10;
+    temp = num;
+    while (temp!=0){
+        
+
+        
     }
     return sum == num;
-}
 
+}
 // Function to calculate the GCD and LCM of two numbers
 void gcdAndLcm(int a, int b) {
     int gcd, lcm;
