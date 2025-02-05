@@ -26,15 +26,15 @@ int main() {
     return 0;
 }
 
-// // check if array is sorted
-// int isSorted(int arr[], int n) {
-//     for (int i = 1; i < n; i++) {
-//         if (arr[i] < arr[i-1]) {
-//             return 0;
-//         }
-//     }
-//     return 1;
-// }   
+// check if array is sorted
+int isSorted(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < arr[i-1]) {
+            return 0;
+        }
+    }
+    return 1;
+}   
 
 // int main() {
 //     int arr[] = {1, 2, 3, 4, 5};
@@ -44,14 +44,14 @@ int main() {
 // }
 
 
-// // reverse an array 
-// void reverseArray(int arr[], int n) {
-//     for (int i = 0; i < n/2; i++) {
-//         int temp = arr[i];
-//         arr[i] = arr[n-i-1];
-//         arr[n-i-1] = temp;
-//     }
-// }
+// reverse an array 
+void reverseArray(int arr[], int n) {
+    for (int i = 0; i < n/2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[n-i-1];
+        arr[n-i-1] = temp;
+    }
+}
 
 // int main() {
 //     int arr[] = {1, 2, 3, 4, 5};
@@ -64,17 +64,20 @@ int main() {
 //     return 0;
 // }
 
-// // remove duplicates from sorted array
-// int removeDuplicates(int arr[], int n) {
-//     if (n == 0 || n == 1) return n;
+// remove duplicates from sorted array
+int removeDuplicates(int arr[], int n) {
+    if (n == 0 || n == 1) return n;
     
-//     int j = 0;
-//     for (int i = 0; i < n - 1; i++)
-//         if (arr[i] != arr[i + 1]) arr[j++] = arr[i];
+    int j = 0;
+    for (int i = 0; i < n - 1; i++)
+        if (arr[i] != arr[i + 1]) 
+        {
+            arr[j++] = arr[i];
+        }       // if current element is not equal to next element, copy it to the new array
 
-//     arr[j++] = arr[n - 1];
-//     return j;
-// }
+    arr[j++] = arr[n - 1]; // copy last element to the new array
+    return j;
+}
 
 // int main() {
 //     int arr[] = {1, 1, 2, 2, 3, 4, 4, 5};
@@ -87,23 +90,41 @@ int main() {
 //     return 0;
 // }
 
-// // left rotate an array by d places
-// void leftRotate(int arr[], int n, int d) {
-//     int temp[d];
-//     for (int i = 0; i < d; i++) temp[i] = arr[i]; // copy first d elements to temp
-//     for (int i = d; i < n; i++) arr[i-d] = arr[i]; // shift remaining elements to the left
-//     for (int i = 0; i < d; i++) arr[n-d+i] = temp[i]; // copy temp elements to the end
+// left rotate an array by d places
+void reverse(int arr[], int start, int end) {
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+void leftRotate(int arr[], int n, int d) {
+    d = d % n; // Handle d > n cases
+    reverse(arr, 0, d - 1);
+    reverse(arr, d, n - 1);
+    reverse(arr, 0, n - 1);
+}
+
+
+// void printArray(int arr[], int n) {
+//     for (int i = 0; i < n; i++)
+//         printf("%d ", arr[i]);
+//     printf("\n");
 // }
 
 // int main() {
 //     int arr[] = {1, 2, 3, 4, 5};
 //     int n = sizeof(arr) / sizeof(arr[0]);
-//     leftRotate(arr, n, 2);
-//     for (int i = 0; i < n; i++) printf("%d ", arr[i]);
-//     printf("\n");
+//     int d = 2;
+
+//     leftRotate(arr, n, d);
+//     printArray(arr, n);
+
 //     return 0;
 // }
-
 // // move zeroes to end
 // void moveZeroes(int arr[], int n) {
 //     int j = 0;
